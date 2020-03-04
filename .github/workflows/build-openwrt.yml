@@ -6,7 +6,7 @@
 # Blog: https://p3terx.com
 #=================================================
 
-name: OpenWrt 0226
+name: OpenWrt 0304
 
 on:
   release:
@@ -63,6 +63,9 @@ jobs:
 
     - name: Clone source code
       run: git clone --depth 1 $REPO_URL -b $REPO_BRANCH openwrt
+      
+    - name: Clone adguardhome
+      run: git clone https://github.com/rufengsuixing/luci-app-adguardhome.git ./openwrt/package/luci-app-adguardhome
 
     - name: Update feeds
       run: cd openwrt && ./scripts/feeds update -a
